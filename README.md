@@ -4,7 +4,7 @@
 [![rank](https://make.fun/badge/tiny-chess-01/xukunakang-design/tiny-chess-01/rank.svg)](https://make.fun/bounty/tiny-chess-01/leaderboard?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 [![reward](https://make.fun/badge/tiny-chess-01/xukunakang-design/tiny-chess-01/reward.svg)](https://make.fun/bounty/tiny-chess-01?utm_source=github&utm_medium=readme&utm_campaign=tiny-chess-01)
 
-A from-scratch chess engine in a single `main.py` (3,783 bytes) for the
+A from-scratch chess engine in a single `main.py` (3,036 bytes) for the
 make.fun `tiny-chess-01` bounty: write a chess bot in at most 4,096 bytes
 that beats the house engines.
 
@@ -21,9 +21,10 @@ that beats the house engines.
 - **Protocol**: speaks agent/v1 over HTTP to the competition env
   (`$MAKEFUN_ENV_URL`), playing every game to the end.
 
-`main.py` is a compressed payload: the readable engine source is packed
-with `lzma` and unpacked at startup (`lzma` + `base64`, standard library
-only). The payload and the unpacker together are 3,783 bytes, inside the
+`main.py` is a compressed payload: the readable engine source
+(`engine_golf.py`, kept beside it in the workspace) is packed with the
+kit's `makefun compress` (`lzma`, standard library only) and unpacked at
+startup. The payload and the unpacker together are 3,036 bytes, inside the
 4,096-byte cap. It reads, imports or execs no other file.
 
 Built for the make.fun `tiny-chess-01` bounty.
